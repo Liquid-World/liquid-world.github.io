@@ -139,24 +139,30 @@
     <div id="stalker">　</div>
     <div id="stalker2">　</div>
     <script>
+        const isIPad = /iPad|Macintosh/i.test(navigator.userAgent) &&
+            'ontouchend' in document
         //マウスストーカー用のdivを取得
         const stalker = document.getElementById('stalker');
         const stalker2 = document.getElementById('stalker2');
-
-        //上記のdivタグをマウスに追従させる処理
-        document.addEventListener('mousemove', function (e) {
-            stalker.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
-            stalker2.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
-        });
-
-        const linkElem = document.querySelectorAll('a');
-        for (let i = 0; i < linkElem.length; i++) {
-            linkElem[i].addEventListener('mouseover', function (e) {
-                stalker.classList.add('hov_');
+        if (!isIPad) { //iPadのマウスストーカーを削除
+            //上記のdivタグをマウスに追従させる処理
+            document.addEventListener('mousemove', function (e) {
+                stalker.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
+                stalker2.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
             });
-            linkElem[i].addEventListener('mouseout', function (e) {
-                stalker.classList.remove('hov_');
-            });
+
+            const linkElem = document.querySelectorAll('a');
+            for (let i = 0; i < linkElem.length; i++) {
+                linkElem[i].addEventListener('mouseover', function (e) {
+                    stalker.classList.add('hov_');
+                });
+                linkElem[i].addEventListener('mouseout', function (e) {
+                    stalker.classList.remove('hov_');
+                });
+            }
+        } else {
+            stalker.style.display = "none";
+            stalker2.style.display = "none";
         }
     </script>
 </body>
