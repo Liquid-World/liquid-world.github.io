@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap');
+
 @media screen and (max-width: 959px) {
     body {
         font-size: 1em !important;
-        
+
     }
 
     main {
@@ -21,11 +22,13 @@
         font-size: 2em !important;
     }
 
-    #menu-btn-check:checked ~ .menu-content {
+    #menu-btn-check:checked~.menu-content {
         width: 100% !important;
-        left: 0% !important;/*メニューを画面内へ*/
+        left: 0% !important;
+        /*メニューを画面内へ*/
     }
 }
+
 @media screen and (max-width: 480px) {
     body {
         font-size: 1em !important;
@@ -41,7 +44,7 @@
         display: none;
     }
 
-    .showcase > div {
+    .showcase>div {
         font-size: 1.5em !important;
     }
 
@@ -64,8 +67,11 @@
 }
 
 body {
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
     background: #f1f1f1;
-    font-family: 'Montserrat','Noto Sans JP', sans-serif;
+    font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
     font-size: 2em;
     margin: 0;
 }
@@ -80,6 +86,7 @@ header {
 }
 
 main {
+    flex: 1;
     margin: 1em;
     margin-left: 1em;
     margin-right: 1em;
@@ -91,6 +98,7 @@ footer {
     padding: 2em;
     text-align: center;
     font-size: 0.5em;
+    bottom: 0;
 }
 
 .icon-mini {
